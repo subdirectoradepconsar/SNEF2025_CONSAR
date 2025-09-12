@@ -1,0 +1,230 @@
+body {
+  display:flex;
+  justify-content: center;  /*centra vertical*/
+  min-height: 100vh;        /*Ocupa toda la altura de la pantalla*/
+  margin: 0;                /*quita margenes por defecto*/
+}
+
+/* Contenedor de estrellas */
+.rating {
+  direction: rtl; /* hace que las estrellas funcionen de derecha a izquierda */
+  unicode-bidi: bidi-override; 
+  display: inline-flex;
+  font-size: 2rem; /* tamaño de las estrellas */
+  cursor: pointer;
+}
+
+/* Escondemos los radios/pundos de entrada*/
+.rating input {
+  display: none;
+}
+
+/* Estilos base de las estrellas */
+.rating label {
+  color: #ccc; /* gris apagado */
+  font-size: 2.5rem;
+  padding: 0 5px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+/* Cuando el usuario pasa el mouse */
+.rating label:hover,
+.rating label:hover ~ label {
+  color: gold; /* se iluminan las estrellas */
+}
+
+/* Cuando se selecciona (checked) */
+.rating input:checked ~ label {
+  color: gold; /* quedan encendidas las estrellas seleccionadas */
+}
+
+h1 {
+  text-align: center;
+  font-size: 25px;
+  font-family: 'NotoSansRegular', sans-serif; /*Tipografia*/
+  font-style: italic;
+}
+
+h2 {
+  font-size: 25px;
+  font-family: 'SpecialGothicExRegular', sans-serif; /*Tipografia*/
+}
+
+h3 {
+  font: 30px;
+  font-family: 'NotoSansRegular', sans-serif;
+}
+
+p,table {
+  font-size: 18px;
+  font-family: 'NotoSansRegular', sans-serif; /*Tipografia*/
+}
+
+/*Encabezado de formularios*/
+legend {
+  font-size: 20px;
+  font-family: 'NotoSansRegular', sans-serif;
+}
+
+#seccion1 {
+  align-content: center;   /* ocupa todo el ancho disponible */
+  margin: 0 auto;          /* centra horizontalmente */
+  background: white;
+}
+
+/* Mensaje de resultado*/
+#resultadoUsuario {
+  text-align: center;
+    width: auto;
+    font-size:1.2rem; 
+    margin-top:10px; 
+    padding:10px; 
+    border:1px solid #003b5b; 
+    border-radius:15px; 
+    background-color:#f0f8ff;
+
+    font-family: 'NotoSansRegular', sans-serif;
+}
+
+
+
+#resultado-imagen {
+  display:block;
+  margin: 0 auto;
+  justify-content: center;  /*centra vertical*/
+  max-width: 350px; 
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5); /* sombra ligera */         
+}
+
+select option {
+    font-size: 14px;           /* tamaño del texto de cada opción */
+    color: black;            /* color del texto */
+    background-color: white;
+    padding: 6px 10px;         /* espacio interno */
+    font-family: 'NotoSansRegular', sans-serif;
+}
+
+/* Aplica estilo al recuadro */
+fieldset {
+  border: 2px solid #003b5b;      /* borde */
+  border-radius: 12px;            /* esquinas redondeadas */
+  padding: 20px;                  /* espacio interno */
+  margin: 20px 0;              /* separación externa + centrado */
+  max-width: 500px;               /* ancho máximo */
+  background-color: #f9f9f9;      /* fondo suave */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5); /* sombra ligera */
+}
+
+label {
+  font-family: "NotoSansRegular", sans-serif;
+  font-size: 16px;   /* opcional */
+  color: black;   /* opcional */
+}
+
+input, select {
+  width: 300px;
+  padding: 3px; /*Ancho de la caja de entrada*/
+  border-radius: 8px;
+  border: 2px solid  gray;   /* mismo color que sección 2 */
+  background-color: white;  /* mismo fondo que sección 2 */
+  font-size: 16px;
+  color: gray;
+}
+input:valid,
+select:valid {
+  border-color: #567ba9;
+  background-color: #d9f5ff; /* azul claro */
+  color: #002a40; /* cambia el color del texto */
+  background-color: rgb(237, 242, 252);
+}
+
+
+/* Campo para entradas con campos form, solo aplico a campo fecha nacimiento*/
+.campo-form {
+    padding: 3px; /*Ancho de la caja de entrada*/
+    border: 2px solid  gray;   /* mismo color que sección 2 */
+    border-radius: 8px;
+    background-color: white;  /* mismo fondo que sección 2 */
+    font-size: 16px;
+    color: gray;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'NotoSansitalic', sans-serif; /*Tipografia*/
+}
+
+#consar1 {
+    float: right;
+    width: 180px;
+}
+
+#consar2 {
+    float: right;
+    width: 180px;
+}
+
+/*Tipografias */
+@font-face {
+  font-family: 'NotoSansBold';
+  src: url('fuentes/NotoSans-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'NotoSansItalic';
+  src: url('fuentes/NotoSans-Italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'NotoSansRegular';
+  src: url('fuentes/NotoSans-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'SpecialGothicExRegular';
+  src: url('fuentes/SpecialGothicExpandedOne-Regular.ttf') format('truetype');
+}
+
+/* Botones para genero y fecha de namicimento*/
+button,
+#submit {
+    font-family: 'NotoSansRegular', sans-serif;
+    padding: 15px;
+    background-color: #ec6765;
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.5s ease;
+}
+button:hover,
+#submit:hover {
+    background-color: #0f38c0;
+}
+
+/* Estilos para el comentario en sección 3 */
+.comentario-box {
+    text-align: center;
+    width: auto;
+    font-size:1.2rem; 
+    margin-top:10px; 
+    padding:10px; 
+    border:1px solid #003b5b; 
+    border-radius:15px; 
+    background-color:#f0f8ff;
+    font-family: 'NotoSansItalic', sans-serif;
+}
+
+/*Tamaño y posicion de las secciones*/
+#seccion1, #seccion2, #seccion3 {
+    max-width: 870px;        /* ancho relativo a la pantalla */
+    padding: 20px;           /* espacio interno */
+    box-sizing: border-box;  /* incluye padding dentro del ancho */
+
+    /* Fondo degradado: 1/3 blanco, 2/3 color */
+    background: linear-gradient(
+        to bottom,
+        white 0%,        /* blanco desde arriba */
+        white 5%,       /* hasta 1/3 de la pantalla */
+        rgb(255, 254, 254) 5%,      /* desde 1/3 empieza el color */
+        rgb(204, 204, 204) 100%       /* color hasta abajo */
+  );
+}
