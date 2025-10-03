@@ -14,12 +14,18 @@
     <form id="cuestionario" method="POST"
         action="https://script.google.com/macros/s/AKfycbwTiPTGUumgEeI6rtOlBq6gZ2FAtei41Bc0dBiP7Ki3c8rcUqWimQxhnKqUrV7d-BF7/exec"
         onsubmit="return confirmarEnvio()">
-        <h1>Semana Nacional de Educación Financiera 2025</h1>
+        <hr>
+        <div class="logo-container">
+            <img src="img/Banners de impresión.png" alt="Logo" id="logo">
+        </div>
+
         <main>
             <!-- SECCIÓN 1 -->
             <section id="seccion1">
-                <h2>Bienvenido al :<br>Circuito de Educacion Previsional</h2>
-                
+
+                <h2>Bienvenido</h2>
+                <h1>Circuito de Educación Previsional</h1>
+
                 <!--Contenedor para los campos dentro del formulario-->
                 <fieldset>
                     <h3>Ingresa tus datos para entrar al formulario.</h3><br>
@@ -57,35 +63,40 @@
             <!-- SECCIÓN 2 -->
             <section id="seccion2">
                 <h2>Cuestionario de clasificación</h2>
-                <p>Instrucciones:</p>
-                <p>Lee cada afirmación y marca qué tanto te identificas.</p>
-                
+                <p id="txtinst">Instrucciones:</p>
+                <p>Lee cada afirmación y marca el rango que te identifique.</p>
+
+                <!--
                 <table>
                     <tr>
                         <td>Nunca</td>
-                        <td>★ </td>
+                        <td> ★ </td>
                     </tr>
                     <tr>
                         <td>Casi nunca</td>
-                        <td>★ ★ </td>
+                        <td> ★ ★ </td>
                     </tr>
                     <tr>
                         <td>A veces</td>
-                        <td>★ ★ ★</td>
+                        <td> ★ ★ ★</td>
                     </tr>
                     <tr>
                         <td>Casi siempre</td>
-                        <td>★ ★ ★ ★</td>
+                        <td> ★ ★ ★ ★</td>
                     </tr>
                     <tr>
                         <td>Siempre</td>
-                        <td>★ ★ ★ ★ ★</td>
+                        <td> ★ ★ ★ ★ ★</td>
                     </tr>
                 </table>
+                -->
 
                 <!-- Pregunta 1 -->
                 <fieldset>
-                    <p>1. Organizo mis gastos para comprar lo que quiero en el futuro.</p>
+
+                    <!--1. Ahorro y planificación-->
+                    <!--1. Organizo mis gastos para comprar lo que quiero en el futuro.-->
+                    <p>1. Organizo mi dinero para comprar las cosas que quiero más adelante.</p>
                     <div class="rating">
 
                         <input type="radio" id="p1-5" name="pregunta1" value="5" required>
@@ -102,11 +113,15 @@
 
                         <input type="radio" id="p1-1" name="pregunta1" value="1">
                         <label for="p1-1" title="Nunca">★</label>
+
                     </div>
+                    <pre id="txtq">        Nunca                                                                                                        Siempre</pre>
                     <br>
 
                     <!-- Pregunta 2 -->
-                    <p>2. Manejo imprevistos sin afectar mis planes financieros.</p>
+                    <!--2. Control de gastos-->
+                    <!--2. Manejo imprevistos sin afectar mis planes financieros.-->
+                    <p>2. Antes de comprar algo, comparo precios en diferentes lugares</p>
                     <div class="rating">
 
                         <input type="radio" id="p2-5" name="pregunta2" value="5" required>
@@ -124,12 +139,13 @@
                         <input type="radio" id="p2-1" name="pregunta2" value="1">
                         <label for="p2-1" title="Nunca">★</label>
                     </div>
-
+                    <pre id="txtq">        Nunca                                                                                                        Siempre</pre>
                     <br>
 
                     <!-- Pregunta 3 -->
-
-                    <p>3. Gasto conscientemente en lo que realmente necesito.</p>
+                    <!--Autocontrol y disciplina-->
+                    <!--3. Gasto conscientemente en lo que realmente necesito.-->
+                    <p>3. Pienso bien antes de comprar, aunque otras personas de mi edad lo tengan o esté de moda.</p>
                     <div class="rating">
 
                         <input type="radio" id="p3-5" name="pregunta3" value="5" required>
@@ -147,12 +163,13 @@
                         <input type="radio" id="p3-1" name="pregunta3" value="1">
                         <label for="p3-1" title="Nunca">★</label>
                     </div>
-
+                    <pre id="txtq">        Nunca                                                                                                        Siempre</pre>
                     <br>
 
                     <!-- Pregunta 4 -->
-
-                    <p>4. Ahorro y planeo para cosas importantes de mi futuro.</p>
+                    <!--Visualización de futuro-->
+                    <!--4. Ahorro y planeo para cosas importantes de mi futuro.-->
+                    <p>4. Me importa ahorrar y planear para las cosas importantes que quiero en mi futuro.</p>
                     <div class="rating">
 
                         <input type="radio" id="p4-5" name="pregunta4" value="5" required>
@@ -170,6 +187,7 @@
                         <input type="radio" id="p4-1" name="pregunta4" value="1">
                         <label for="p4-1" title="Nunca">★</label>
                     </div>
+                    <pre id="txtq">        Nunca                                                                                                        Siempre</pre>
                     <br><br>
 
                     <!-- Input oculto para total-->

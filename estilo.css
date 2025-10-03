@@ -22,7 +22,7 @@ body {
 /* Estilos base de las estrellas */
 .rating label {
   color: #ccc; /* gris apagado */
-  font-size: 2.5rem;
+  font-size: 5rem;
   padding: 0 5px;
   cursor: pointer;
   transition: color 0.2s;
@@ -40,13 +40,19 @@ body {
 }
 
 h1 {
-  text-align: center;
+  font-size: 25px;
+  font-family: 'NotoSansRegular', sans-serif; /*Tipografia*/
+  font-style: italic;
+}
+
+#txtinst{
   font-size: 25px;
   font-family: 'NotoSansRegular', sans-serif; /*Tipografia*/
   font-style: italic;
 }
 
 h2 {
+  text-align: center;
   font-size: 25px;
   font-family: 'SpecialGothicExRegular', sans-serif; /*Tipografia*/
 }
@@ -66,6 +72,24 @@ legend {
   font-size: 20px;
   font-family: 'NotoSansRegular', sans-serif;
 }
+
+.logo-container {
+  width: 400px;              /* ancho del contenedor */
+  height: 120px;             /* alto del contenedor */
+  display: flex;             /* usamos flexbox */
+  justify-content: center;   /* centrado horizontal */
+  align-items: center;       /* centrado vertical */
+  margin: 0 auto;            /* centra el contenedor en la página */
+  border-radius: 1cap;      /* bordes redondeados pero no se ven por que es transparente */
+  border: 1px solid white;    /* (opcional) para ver el marco del contenedor */
+}
+
+#logo {
+  max-width: 100%;   /* no rebasa el ancho del contenedor */
+  max-height: 100%;  /* no rebasa el alto del contenedor */
+  object-fit: contain; /* mantiene proporciones sin deformar */
+}
+
 
 #seccion1 {
   align-content: center;   /* ocupa todo el ancho disponible */
@@ -87,7 +111,10 @@ legend {
     font-family: 'NotoSansRegular', sans-serif;
 }
 
-
+#txtq{
+  font-size: 10px;
+  font-family: 'NotoSansBold', sans-serif;
+}
 
 #resultado-imagen {
   display:block;
