@@ -4,7 +4,6 @@ body {
   min-height: 100vh;        /*Ocupa toda la altura de la pantalla*/
   margin: 0;                /*quita margenes por defecto*/
 }
-
 /* Contenedor de estrellas */
 .rating {
   direction: rtl; /* hace que las estrellas funcionen de derecha a izquierda */
