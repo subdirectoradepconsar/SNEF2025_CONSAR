@@ -12,19 +12,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Lista de imágenes
     const imagenes = [
-        "img/temerario/cofreDelTesoro.png", //temerario_del_gasto.jpg
-        "img/temerario/llegadaAlParaiso.png", // corazones_en_mora.jpg
-        "img/temerario/mensajeEnUnaBotella.png", // presuntos_ahorradores.jpg
-        "img/temerario/olaGigante.png" //herederos_del_futuro.jpg
+        "img/temerario/cofreDelTesoro.png",
+        "img/temerario/llegadaAlParaiso.png",
+        "img/temerario/mensajeEnUnaBotella.png",
+        "img/temerario/olaGigante.png"
     ];
-    let ultimaImagen = ""; // para controlar la no repetición
+    let ultimaImagen = "";
 
     function obtenerImagenAleatoria() {
-        // Si por alguna razón no hay imágenes, devolvemos cadena vacía
         if (!imagenes || imagenes.length === 0) return "";
-
         let nuevaImagen = "";
-        // Reintentar hasta que sea diferente a la última (máx. 10 intentos por seguridad)
         let intentos = 0;
         do {
             const indice = Math.floor(Math.random() * imagenes.length);
@@ -36,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return nuevaImagen;
     }
 
-    // Ocultamos secciones al iniciar el formulario
+    // Ocultar secciones al inicio
     seccion2.style.display = "none";
     seccion3.style.display = "none";
 
@@ -59,41 +56,47 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Manejar envío del formulario en sección 2
+    // Manejar envío del formulario
     form.addEventListener("submit", (event) => {
         event.preventDefault();
 
-        // Validar que todas las preguntas tengan respuesta (ahora 4)
+        // ✅ Validar dinámicamente todas las preguntas existentes
+        const preguntas = Array.from(new Set(
+            [...form.querySelectorAll('input[type="radio"]')]
+                .map(r => r.name)
+        ));
+
         let todasRespondidas = true;
-        for (let i = 1; i <= 4; i++) {
-            const respuesta = document.querySelector(`input[name="pregunta${i}"]:checked`);
+
+        for (let i = 0; i < preguntas.length; i++) {
+            const nombre = preguntas[i];
+            const respuesta = document.querySelector(`input[name="${nombre}"]:checked`);
             if (!respuesta) {
-                alert(`Por favor responde la pregunta ${i}.`);
+                alert(`Por favor responde la ${nombre.replace("pregunta", "pregunta ")}.`);
                 todasRespondidas = false;
                 break;
             }
         }
+
         if (!todasRespondidas) return;
 
-        // Calcular total de respuestas
+        // Calcular total de puntaje
         let puntajeTotal = 0;
-        for (let i = 1; i <= 4; i++) {
-            const respuesta = document.querySelector(`input[name="pregunta${i}"]:checked`);
+        preguntas.forEach(nombre => {
+            const respuesta = document.querySelector(`input[name="${nombre}"]:checked`);
             if (respuesta) {
                 puntajeTotal += parseInt(respuesta.value, 10);
             }
-        }
+        });
 
-        // Guardar en el input oculto
         totalInput.value = puntajeTotal;
 
-        // Mostrar mensaje en resultados (saludo + puntaje)
-        const nombre = document.getElementById("nombre").value || "Usuario";
-        resultadoDiv.innerHTML = `Bienvenido al juego <strong>${nombre}</strong>.<br> Perteneces al siguinte equipo.`;
+        // Mostrar resultado
+        const nombreUsuario = document.getElementById("nombre").value || "Usuario";
+        resultadoDiv.innerHTML = `Bienvenido al juego <strong>${nombreUsuario}</strong>.<br> Perteneces al siguiente equipo.`;
 
-        // --- Seleccionar y mostrar imagen aleatoria (sin repetir consecutivo) ---
+        // Mostrar imagen aleatoria sin repetir
         const nuevaImg = obtenerImagenAleatoria();
-        console.log("Imagen seleccionada:", nuevaImg); // ayuda a debug
         if (imgElemento) {
             if (nuevaImg) {
                 imgElemento.src = nuevaImg;
@@ -103,17 +106,17 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // Limpiamos el comentario de texto (ya no aplica)
+        // Limpiar comentario
         if (comentarioDiv) {
             comentarioDiv.innerHTML = "";
             comentarioDiv.classList.remove("comentario-box");
         }
 
-        // Cambiar de sección 2 a la sección 3
+        // Cambiar a la sección 3
         seccion2.style.display = "none";
         seccion3.style.display = "block";
 
-        // Enviar datos con fetch
+        // Enviar datos
         fetch(form.action, {
             method: "POST",
             body: new FormData(form)
@@ -122,6 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(error => console.error("Error al enviar:", error));
     });
 });
+
 
 
 /*
