@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "img/temerario/mensajeEnUnaBotella.png",
         "img/temerario/olaGigante.png"
     ];
+    
     let ultimaImagen = "";
 
     function obtenerImagenAleatoria() {
@@ -93,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Mostrar resultado
         const nombreUsuario = document.getElementById("nombre").value || "Usuario";
-        resultadoDiv.innerHTML = `Bienvenido al juego <strong>${nombreUsuario}</strong>.<br> Perteneces al siguiente equipo.`;
+        resultadoDiv.innerHTML = `Bienvenid@ al juego <strong>${nombreUsuario}</strong>.<br> Perteneces al siguiente equipo.`;
 
         // Mostrar imagen aleatoria sin repetir
         const nuevaImg = obtenerImagenAleatoria();
@@ -121,8 +122,8 @@ document.addEventListener("DOMContentLoaded", () => {
             method: "POST",
             body: new FormData(form)
         })
-        .then(response => console.log("Datos enviados a Google Sheets"))
-        .catch(error => console.error("Error al enviar:", error));
+            .then(response => console.log("Datos enviados a Google Sheets"))
+            .catch(error => console.error("Error al enviar:", error));
     });
 });
 
