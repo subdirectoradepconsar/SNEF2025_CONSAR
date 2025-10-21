@@ -8,12 +8,16 @@ body {
 .rating {
   direction: rtl; /* hace que las estrellas funcionen de derecha a izquierda */
   unicode-bidi: bidi-override; 
-  display: inline-flex;
-  font-size: 2rem; /* tamaño de las estrellas */
+  display: flex;
+  justify-content: center; /* CENTRAR ESTRELLAS SIEMPRE */
+  align-items: center;
+  width: 100%;
+  max-width: 400px; /* Ancho máximo para agrupar estrellas */
+  margin: 0 auto; /* Centrar el contenedor */
   cursor: pointer;
 }
 
-/* Escondemos los radios/pundos de entrada*/
+/* Escondemos los radios/puntos de entrada*/
 .rating input {
   display: none;
 }
@@ -25,6 +29,7 @@ body {
   padding: 0 5px;
   cursor: pointer;
   transition: color 0.2s;
+  flex-shrink: 0; /* Evitar que se encojan las estrellas */
 }
 
 /* Cuando el usuario pasa el mouse */
@@ -113,6 +118,10 @@ legend {
 #txtq{
   font-size: 10px;
   font-family: 'NotoSansBold', sans-serif;
+  white-space: pre-wrap; /* Permite que el texto se ajuste */
+  word-wrap: break-word;
+  max-width: 100%;
+  overflow: visible;
 }
 
 #resultado-imagen {
@@ -255,8 +264,99 @@ button:hover,
   );
 }
 
+/* SOLUCIÓN PARA EL PROBLEMA EN VISTA 2 */
 #contenedorPreguntas {
-  max-width: 400px;        /* ancho relativo a la pantalla */
-    padding: 20px;           /* espacio interno */
-    box-sizing: border-box;  /* incluye padding dentro del ancho */
+  max-width: 100% !important;  /* Cambiado de 400px a 100% */
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: visible; /* Asegura que nada se corte */
+}
+
+/* NUEVO: Contenedor para las leyendas de las estrellas */
+.leyenda-estrellas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 5px auto 0 auto;
+  font-size: 12px;
+  font-family: 'NotoSansBold', sans-serif;
+}
+
+.leyenda-izquierda {
+  text-align: left;
+  flex: 1;
+}
+
+.leyenda-derecha {
+  text-align: right;
+  flex: 1;
+}
+
+/* Ajustes responsivos para móviles */
+@media (max-width: 768px) {
+  .rating {
+    max-width: 350px;
+  }
+  
+  .rating label {
+    font-size: 3.5rem; /* Reducir tamaño de estrellas en móviles */
+    padding: 0 8px;
+  }
+  
+  #txtq {
+    display: none; /* Ocultar el texto antiguo */
+  }
+  
+  .leyenda-estrellas {
+    max-width: 350px;
+    font-size: 11px;
+    margin-top: 8px;
+  }
+  
+  #consar2 {
+    width: 140px; /* Reducir imagen en móviles */
+    float: none;
+    display: block;
+    margin: 20px auto;
+  }
+  
+  fieldset {
+    max-width: 100%;
+    margin: 10px 0;
+  }
+}
+
+/* Ajustes para móviles muy pequeños */
+@media (max-width: 480px) {
+  .rating {
+    max-width: 300px;
+  }
+  
+  .rating label {
+    font-size: 3rem; /* Estrellas más pequeñas */
+    padding: 0 6px;
+  }
+  
+  .leyenda-estrellas {
+    max-width: 300px;
+    font-size: 10px;
+    margin-top: 5px;
+  }
+  
+  input, select {
+    width: 100%; /* Inputs responsivos */
+    max-width: 280px;
+  }
+  
+  .logo-container {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  #logo {
+    max-width: 300px;
+  }
 }
