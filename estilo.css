@@ -73,7 +73,7 @@ legend {
 }
 
 .logo-container {
-  width: 300px;              /* ancho del contenedor */
+  width: 250px;              /* ancho del contenedor */
   height: 120px;             /* alto del contenedor */
   display: flex;             /* usamos flexbox */
   justify-content: center;   /* centrado horizontal */
