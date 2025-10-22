@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "img/temerario/olaGigante.png"
     ];
     
-    let ultimaImagen = "";
+    let ultimaImagen = localStorage.getItem("ultimaImagenTemerario") || "";
 
     function obtenerImagenAleatoria() {
         if (!imagenes || imagenes.length === 0) return "";
@@ -28,9 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const indice = Math.floor(Math.random() * imagenes.length);
             nuevaImagen = imagenes[indice];
             intentos++;
-        } while (nuevaImagen === ultimaImagen && intentos < 10);
+        } while (nuevaImagen === ultimaImagen && intentos < 20);
 
+        // Guarda la nueva imagen como ultima seleccionada
         ultimaImagen = nuevaImagen;
+        localStorage.setItem("ultimaImagenTemerario", nuevaImagen);
         return nuevaImagen;
     }
 
